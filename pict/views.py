@@ -22,5 +22,5 @@ def search_results(request):
         category = request.GET.get("imagesearch")
         searched_images = Image.search_by_category(category)
         message = f"{category}"
-        print(searched_images)
+        
         return render(request, 'pict/search_results.html', {"message": message, "images": searched_images})
