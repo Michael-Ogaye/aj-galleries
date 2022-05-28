@@ -1,10 +1,23 @@
 {%extends 'base.html'%}
+{%load crispy_forms_tags%}
 
 {% block content %}
-<div class="forms">
-  <div class="loccat d-flex">
+<div class="forms mt-5 mx-auto text-center">
+  <div class="loccat d-flex justify-content-around">
     <div class="loc">
-      <form action="">
+      <form action="" method="POST">
+        <input class=" d-inline p-1" type="text" placeholder="Enter location to add.." name="loc">
+        <button class="btn btn-sm btn-outline-info d-inline">Add+</button>
+
+      </form>
+
+    </div>
+
+    <div class="cat">
+      <form action="" method="POST">
+        <input class="p-1" type="text" placeholder="Enter category to add..">
+        <button class="btn btn-sm btn-outline-info">Add+</button>
+
 
       </form>
 
