@@ -1,5 +1,7 @@
 from django.shortcuts import redirect, render
 from .models import Image, Location,Category
+from .forms import ImageForm,CategoryForm,LoctionForm
+from django.contrib import messages
 
 
 # Create your views here.
@@ -7,8 +9,16 @@ from .models import Image, Location,Category
 def home(request):
     images = Image.objects.all()
     locations = Location.get_locations()
+    if request.method=='POST':
+        form=ImageForm(request.POST,request.FILES)
+        if form.is_valid():
+            form.save()
+            messages.success(request,'The image details has been saved succesfully')
 
-    return render(request,'pict/home.html',{'images': images, 'locations': locations})
+    else:
+        form=ImageForm()
+
+    return render(request,'pict/home.html',{'images': images, 'locations': locations,'form':form})
 
 
 def image_location(request, location):
