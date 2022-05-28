@@ -9,7 +9,7 @@
     <img src="{{image.image.url}}" class="card-img-top" alt="..." style="width: 100%;aspect-ratio: 1;">
       <div class="card-footer ">
         <h5 class="card-title text-success">{{image.name}}</h5>
-        <a class="btn btn-outline" href="">see more..</a>
+        <a class="btn btn-outline-info" href="{% url 'specific' id=image.id %}">see more..</a>
        
       </div>
     </div>
