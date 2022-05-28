@@ -1,5 +1,7 @@
 {%load static%}
+
 {% load bootstrap4 %}
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -13,7 +15,9 @@
 
   {% block styles %}
   {% bootstrap_css %}
+  
   {% endblock %}
+  <link rel="stylesheet" href="{% static '/css/style.css'%}">
 
 </head>
 <body>
