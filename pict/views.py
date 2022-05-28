@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .models import Image, Location
+from .models import Image, Location,Category
 
 
 # Create your views here.
@@ -13,7 +13,7 @@ def home(request):
 
 def image_location(request, location):
     images = Image.filter_by_location(location)
-    print(images)
+    
     return render(request, 'pict/location.html', {'location_images': images})
 
 
@@ -24,3 +24,8 @@ def search_results(request):
         message = f"{category}"
         
         return render(request, 'pict/search.html', {"message": message, "images": searched_images})
+
+def specific(request,id):
+    specific_image=Image.get_image_by_id(id)
+
+    return render(request,'pict/specific.html',{'image':specific_image})

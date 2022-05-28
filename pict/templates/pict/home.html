@@ -5,7 +5,7 @@
 {%if images%}
 <div class="content mx-auto row" >
   {%for image in images%}
-  <div class="card col-md-3 my-3 p-4 shadow m-3 " style="width: 18rem;">
+  <div class="card col-md-3 my-3 p-4 shadow m-3 mx-auto w-75" style="width: 18rem;">
     <img src="{{image.image.url}}" class="card-img-top" alt="..." style="width: 100%;aspect-ratio: 1;">
       <div class="card-footer ">
         <h5 class="card-title text-success">{{image.name}}</h5>
