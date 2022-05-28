@@ -8,7 +8,7 @@ def home(request):
     images = Image.objects.all()
     locations = Location.get_locations()
 
-    return render(request,'pict/home.html',{'images': images[::-1], 'locations': locations})
+    return render(request,'pict/home.html',{'images': images, 'locations': locations})
 
 
 def image_location(request, location):
@@ -32,8 +32,8 @@ def specific(request,id):
 
 def delete_img(request,id):
     image_delete=Image.objects.get(id=id)
-    image_delete.delete_image()
-    return redirect('specific')
+    image_delete.delete()
+    return redirect(home)
 
 
 def update_img(request,id):

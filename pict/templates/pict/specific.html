@@ -15,12 +15,28 @@
           <div class="col-md-8">
             <div class="card-body">
               <h5 class="card-title text-info ">{{image.name}}</h5>
-              <p class="card-text">
+              <p style="box-shadow: 0px 1px 3px white inset; background:#f0f0f0;" class="card-text p-4">
                 {{image.description}}
               </p>
-              <p class="card-text">
+              <p class="card-text pb-5">
                 <small class="text-muted">Last updated <span>{{image.date|timesince}}</span></small>
               </p>
+            </div>
+            <div class="card-footer d-flex justify-content-around p-4 " style="margin-bottom: -6vw;">
+                <div class="author">
+                    <p>Authored by: <small>{{image.author}}</small></p>
+
+                </div>
+                <p>Site location: <small>{{image.location.name}}</small></p>
+                <p>Category: <small>{{image.category.name}}</small></p>
+                <div class="upadate">
+                    <a  class="btn btn-outline-info" href="{% url 'update' id=image.id%}">update</a>
+
+                </div>
+                <div class="del me-5 ">
+                    <a class=" d-block fs-2 " href="{% url 'del' id=image.id %}"><i class="fa-regular fa-trash-can text-danger fs-2"></i></a>
+
+                </div>
             </div>
           </div>
         </div>
