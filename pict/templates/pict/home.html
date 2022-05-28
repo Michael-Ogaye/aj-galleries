@@ -1,33 +1,21 @@
 {%extends 'base.html'%}
 
 {% block content %}
-{{block.super}}
 
-<div class="container">
-
-    
-    
-  {%if images%}
-    <div class="row my-5" >
-      <!-- displaying News articles -->
-      {%for image in images%}
-      <div class= "col-md-6 col-lg-6">
-        <h2 class="text-center">{{image.name}}  </h2>
-        <img  src="{{image.image.url}}" style="width: 500px;aspect-ratio: 1;" alt="">
-        
+{%if images%}
+<div class="content mx-auto row" >
+  {%for image in images%}
+  <div class="card col-md-3 my-3 p-4 shadow m-3 " style="width: 18rem;">
+    <img src="{{image.image.url}}" class="card-img-top" alt="..." style="width: 100%;aspect-ratio: 1;">
+      <div class="card-footer ">
+        <h5 class="card-title text-success">{{image.name}}</h5>
+       
       </div>
-
-    <!--Display news Article images  -->
-    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-      <img src="" class="img-responsive" alt="">
-    </div>
-
-
-
-      
-  
     </div>
     {%endfor%}
+
+</div>
+    
   
     {%else%}
     <div class="row card shadow mt-5 p-5 alert alert-warning">
