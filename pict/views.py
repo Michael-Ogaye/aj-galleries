@@ -29,3 +29,7 @@ def specific(request,id):
     specific_image=Image.get_image_by_id(id)
 
     return render(request,'pict/specific.html',{'image':specific_image})
+
+def delete(request,id):
+    image_delete=Image.objects.get(id=id)
+    image_delete.delete_image()
