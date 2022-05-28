@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import redirect, render
 from .models import Image, Location,Category
 
 
@@ -30,6 +30,11 @@ def specific(request,id):
 
     return render(request,'pict/specific.html',{'image':specific_image})
 
-def delete(request,id):
+def delete_img(request,id):
     image_delete=Image.objects.get(id=id)
     image_delete.delete_image()
+    return redirect('specific')
+
+
+def update_img(request,id):
+    pass
