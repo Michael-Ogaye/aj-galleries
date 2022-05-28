@@ -2,6 +2,7 @@ from django.shortcuts import redirect, render
 from .models import Image, Location,Category
 from .forms import ImageForm,CategoryForm,LoctionForm
 from django.contrib import messages
+from django.http import HttpResponse
 
 
 # Create your views here.
@@ -48,3 +49,21 @@ def delete_img(request,id):
 
 def update_img(request,id):
     pass
+
+
+def save_location(request):
+    if request.method=='POST':
+        if 'loc' in request.POST and request.POST['loc']:
+            name=request.POST.get('loc')
+            new_loc=Location(name=name)
+            new_loc.save()
+            return redirect(home)
+
+
+def save_categor(request):
+    if request.method=='POST':
+        if 'cat' in request.POST and request.POST['cat']:
+            name=request.POST.get('cat')
+            new_cat=Category(name=name)
+            new_cat.save()
+            return redirect(home)

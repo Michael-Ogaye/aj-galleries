@@ -5,7 +5,8 @@
 <div class="forms mt-5 mx-auto text-center">
   <div class="loccat d-flex justify-content-around">
     <div class="loc">
-      <form action="" method="POST">
+      <form action="{%url 'location'%}" method="POST">
+        {%csrf_token%}
         <input class=" d-inline p-1" type="text" placeholder="Enter location to add.." name="loc">
         <button class="btn btn-sm btn-outline-info d-inline">Add+</button>
 
@@ -28,6 +29,9 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
+        {%for message in messages%}
+        <p class="alert alert-{{message.tags}}"> {{message}}</p>
+        {%endfor%}
         <form action="{%url 'home'%}" method="POST" enctype="multipart/form-data">
           {%csrf_token%}
           {{form|crispy}}
@@ -50,8 +54,9 @@
 
 
     <div class="cat">
-      <form action="" method="POST">
-        <input class="p-1" type="text" placeholder="Enter category to add..">
+      <form action="{% url 'category'%}" method="POST">
+        {%csrf_token%}
+        <input class="p-1" type="text" placeholder="Enter category to add.." name="cat">
         <button class="btn btn-sm btn-outline-info">Add+</button>
 
 
