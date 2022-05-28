@@ -2,6 +2,10 @@
 
 body{
     background-image: url('../images/gll.png');
-    color: orange;
+    background-repeat: no-repeat;
+    background-size: cover;
+    /* background-color: rgb(200, 230, 234); */
+    
+    background-blend-mode: darken;
     
 }
