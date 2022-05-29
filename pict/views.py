@@ -48,7 +48,17 @@ def delete_img(request,id):
 
 
 def update_img(request,id):
-    pass
+    image=Image.get_image_by_id(id)
+    form=ImageForm(request.POST or None,request.FILES or None, instance=image)
+    if request.method=='POST':
+        if form.is_valid():
+          form.save()
+          return redirect(specific,id=image.id)
+
+    return render(request,'pict/update.html',{'form':form})
+
+    
+    
 
 
 def save_location(request):
