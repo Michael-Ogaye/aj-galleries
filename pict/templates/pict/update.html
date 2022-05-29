@@ -3,12 +3,12 @@
 {% block content %}
 <div class="container">
 
-  <div class="forms">
-      <h5>Update the Image information </h5>
-      <form action="" enctype="multipart/form-data" method="POST">
+  <div class="forms my-4 w-75 mx-auto">
+      <h5 class="text-center fs-2" style="color: purple;">Update the Image information </h5>
+      <form action="" enctype="multipart/form-data" method="POST" class="border p-3">
          {%csrf_token%}
         {{form|crispy}}
-        <button class="btn btn-sm btn-outline-info">Submit</button>
+        <button class="btn btn-sm btn-outline-info d-block w-100">Submit</button>
 
       </form>
   </div>

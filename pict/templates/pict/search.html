@@ -4,9 +4,9 @@
 
   <div class="row">
     {% if images%}
-      <h2>Found {{ images|length }} of searched term {{message}}</h2>
+      <p class="alert alert-success shadow mt-5 ">Found {{ images|length }} of searched term {{message}}</p>
     {% else %}
-      <h2> Found 0 images for the search term {{message}} ...</h2>
+      <p class="alert alert-danger shadow mt-5"> Found 0 images for the search term {{message}} ...</p>
     {% endif %}
 
   </div>
@@ -19,7 +19,7 @@
     <img src="{{image.image.url}}" class="card-img-top" alt="..." style="width: 100%;aspect-ratio: 1;">
       <div class="card-footer ">
         <h5 class="card-title text-success">{{image.name}}</h5>
-        <a class="btn btn-outline" href="">see more..</a>
+        <a class="btn btn-outline-info" href="{% url 'specific' id=image.id %}">see more..</a>
        
       </div>
     </div>
