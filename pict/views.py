@@ -33,8 +33,11 @@ def search_results(request):
         category = request.GET.get("cat")
         searched_images = Image.search_by_category(category)
         message = f"{category}"
+
+    else:
+        return redirect(home)   
         
-        return render(request, 'pict/search.html', {"message": message, "images": searched_images})
+    return render(request, 'pict/search.html', {"message": message, "images": searched_images})
 
 def specific(request,id):
     specific_image=Image.get_image_by_id(id)
