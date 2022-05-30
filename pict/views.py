@@ -68,15 +68,35 @@ def save_location(request):
     if request.method=='POST':
         if 'loc' in request.POST and request.POST['loc']:
             name=request.POST.get('loc')
-            new_loc=Location(name=name)
-            new_loc.save()
-            return redirect(home)
+            result=Location.objects.filter(name__exact=name).all()
+            if not result:
+                new_loc=Location(name=name)
+                new_loc.save()
+                return redirect(home)
+            else:
+                messages.error(request,'That location exists')
+                return redirect(home)
+    
+                
+
+        else:
+         return redirect(home)
 
 
 def save_categor(request):
     if request.method=='POST':
         if 'cat' in request.POST and request.POST['cat']:
-            name=request.POST.get('cat')
-            new_cat=Category(name=name)
-            new_cat.save()
+                name=request.POST.get('cat')
+                result=Category.objects.filter(name__exact=name).all()
+                if not result:
+                    new_cat=Category(name=name)
+                    new_cat.save()
+                    return redirect(home)
+                else:
+                    messages.error(request,'That category is already there')
+                    return redirect(home)
+
+               
+        
+        else:
             return redirect(home)
